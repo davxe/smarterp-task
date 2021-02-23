@@ -1,12 +1,13 @@
 import React from 'react'
-// import './App.css'
-import Home from './Home';
+import Home from './component/Home';
+import Search from './component/Search';
 function App(props)
 {
     return(
-            <div>
-                <Home/>
-            </div>
+        <div>
+            <Search/>
+            <Home/>
+        </div>
     )
 }
 

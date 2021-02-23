@@ -1,16 +1,17 @@
 import React from 'react'
+import PostForm from './PostForm'
 class Home extends React.Component{
     constructor(){
         super()
         this.state={
-            isdata:false,
+            isPosted:false,
             
         }
     }
-    handleData=()=>{
+    handlePostedData=()=>{
         this.setState((prevState)=>{
             return{
-                isdata:!prevState.isdata
+                isPosted:!prevState.isPosted
             }
         })
     }
@@ -19,11 +20,15 @@ class Home extends React.Component{
             <div>
                 <h1>Welcome to Show Post</h1>
                 <div style={{width:'50%',float:'left'}}>
-                    <button onClick={this.handleData}>{this.state.isdata?'Add Post':'nothing'}</button>
+                    <button onClick={this.handlePostedData}>Add Post</button>
+                    {
+                        (this.state.isPosted)?(<div><PostForm/></div>):('')
+                    }
                 </div>
                 <div style={{width:'50%',float:'right'}}>
                     <button >List Post</button>
                 </div>
+                
             </div>
         )
     }
