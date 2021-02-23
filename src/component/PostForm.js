@@ -1,6 +1,8 @@
 import React from 'react'
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
+import {connect} from 'react-redux'
+import { addPost } from '../action/postAction';
 class PostForm extends React.Component{
     constructor(props){
         super(props)
@@ -24,6 +26,7 @@ class PostForm extends React.Component{
             postBody:this.state.postBody
         }
         console.log('form data',formData)
+        this.props.dispatch(addPost(formData))
         this.setState({postTitle:'',postBody:''})
     }
     render(){
@@ -55,4 +58,4 @@ class PostForm extends React.Component{
         )
     }
 }
-export default PostForm
+export default connect()(PostForm)

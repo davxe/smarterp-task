@@ -1,11 +1,9 @@
 import React from 'react'
 import Home from './component/Home';
-import Search from './component/Search';
 function App(props)
 {
     return(
-        <div>
-            <Search/>
+        <div className='container'>
             <Home/>
         </div>
     )
