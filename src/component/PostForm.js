@@ -67,7 +67,7 @@ class PostForm extends React.Component{
                         value={this.state.postTitle}
                         onChange={this.handleChange}
                     />
-                    {this.state.titleError?<div style={{fontSize:11,color:'red',textAlign:'left' }}>{this.state.titleError}</div>:null}
+                    <div style={{fontSize:11,color:'red',textAlign:'left' }}>{this.state.titleError}</div>
                     <br/><br/>
                     <label htmlFor='postBody'>Enter Body:-</label><br/>
                     <CKEditor
