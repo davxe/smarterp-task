@@ -4,20 +4,20 @@ class Search extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            find:''
+            find:'',
         }
     }
     handleFind=(event)=>{
         this.setState({[event.target.name]:event.target.value})
+        this.props.handleFindData(event.target.value)
     }
     render(){
-        console.log('data',this.props.post)
         return(
             <div>
                 <form>
                     <input 
                         type='search' 
-                        value={this.state.search}
+                        value={this.state.find}
                         name='find'
                         onChange={this.handleFind}
                         placeholder='find by title'
