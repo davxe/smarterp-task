@@ -13,14 +13,17 @@ class PostForm extends React.Component{
             bodyError:''
         }
     }
+    //on change of postTile
     handleChange=(e)=>{
         this.setState({[e.target.name]:e.target.value})
         this.setState({titleError:''})
     }
+    //on change of postBody
     handlePostBody=(e,editor)=>{
         const postBody=editor.getData();
         this.setState({postBody,bodyError:''})
     }
+    //for validation of input fields
     validate=()=>{
         let titleError=''
         let bodyError=''
@@ -36,6 +39,7 @@ class PostForm extends React.Component{
         }
         return true
     }
+    // on submit 
     handleSubmit=(e)=>{
         e.preventDefault()
         const isValid=this.validate();
@@ -47,37 +51,35 @@ class PostForm extends React.Component{
             }
             this.props.dispatch(addPost(formData))
             this.setState({postTitle:'',postBody:''})
-            alert('post published to see the post click on list post')
         }
-        
     }
     render(){
         return(
             <div>
-                    <h1>Add Post Data</h1>
-                    <form onSubmit={this.handleSubmit}>
-                        <label htmlFor='postTitle'>Enter Title:-</label><br/>
-                        <input
-                            type='text'
-                            name='postTitle'
-                            id='postTitle'
-                            placeholder='Enter your Title here'
-                            value={this.state.postTitle}
-                            onChange={this.handleChange}
-                        />
-                        {this.state.titleError?<div style={{fontSize:11,color:'red',textAlign:'left' }}>{this.state.titleError}</div>:null}
-                        <br/><br/>
-                        <label htmlFor='postBody'>Enter Body:-</label><br/>
-                        <CKEditor
-                            id='postBody'
-                            editor={ClassicEditor}
-                            data={this.state.postBody}
-                            onChange={this.handlePostBody}
-                        />
-                        <div style={{fontSize:11,color:'red',textAlign:'left'}}>{this.state.bodyError}</div>
-                        <br/>
-                        <input type='submit' value='Publilsh'/>
-                    </form>
+                <h1>Add Post Data</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <label htmlFor='postTitle'>Enter Title:-</label><br/>
+                    <input
+                        type='text'
+                        name='postTitle'
+                        id='postTitle'
+                        placeholder='Enter your Title here'
+                        value={this.state.postTitle}
+                        onChange={this.handleChange}
+                    />
+                    {this.state.titleError?<div style={{fontSize:11,color:'red',textAlign:'left' }}>{this.state.titleError}</div>:null}
+                    <br/><br/>
+                    <label htmlFor='postBody'>Enter Body:-</label><br/>
+                    <CKEditor
+                        id='postBody'
+                        editor={ClassicEditor}
+                        data={this.state.postBody}
+                        onChange={this.handlePostBody}
+                    />
+                    <div style={{fontSize:11,color:'red',textAlign:'left'}}>{this.state.bodyError}</div>
+                    <br/>
+                    <input type='submit' value='Publilsh'/>
+                </form>
             </div>
         )
     }

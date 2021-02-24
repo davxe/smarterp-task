@@ -2,13 +2,16 @@
     box-shadow: 0 4px 8px 0 rgba(204, 38, 38, 0.452);
     transition: 0.3s;
     border-width: 40%;
-    border-radius: 100%;
+    border-style: solid;
+    margin-bottom: 10px;
     padding:2px 16px;
     text-align: center;
 }
 .card:hover{
     box-shadow:0 8px 16px 0 rgba(107, 218, 64, 0.986);
     border-left-color: blue;
+    border-left-width: 10px;
+    border-radius: 25px;
 }
 .container{
     padding:2px 16px;
@@ -41,4 +44,7 @@ input[type=submit]:hover{
 }
 input[type=search]{
     font-size: 25px;
+}
+input[type=search]:hover{
+    border-radius:25px
 }

@@ -20,7 +20,7 @@ class Search extends React.Component{
                         value={this.state.find}
                         name='find'
                         onChange={this.handleFind}
-                        placeholder='find by title'
+                        placeholder='find by posttitle or postbody'
                         aria-label='search'
                     />
                 </form>
